@@ -3,18 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <title>Home</title>
     <style>
         /* Center the h1 tag within the div */
-        div {
+        div.content {
             display: flex;
             justify-content: center;
             height: 100vh; /* Adjust this value as needed */
         }
+
+        /* Sidebar styles */
+        .sidebar {
+            width: 200px;
+            background-color: #223b59;
+            padding: 20px;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            padding: 10px 0;
+            position: relative; /* Position relative for dropdown menu positioning */
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: white;
+            display: block; /* Make menu items block elements */
+        }
+
+        .sidebar ul li:hover {
+            background-color: #334e75; /* Darken background color on hover */
+        }
+
+        /* Dropdown menu styles */
+        .dropdown-menu {
+            display: none; /* Hide dropdown menu by default */
+            background-color: #334e75; /* Dark blue background color */
+            padding: 10px;
+            border-radius: 4px;
+            position: absolute; /* Position dropdown absolutely */
+            top: 100%; /* Position dropdown below the parent li */
+            left: 0;
+            z-index: 1; /* Ensure dropdown appears above other content */
+        }
+
+        .sidebar ul li:hover .dropdown-menu {
+            display: block; /* Show dropdown menu on hover */
+        }
+
+        .dropdown-menu a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 5px 0;
+        }
     </style>
 </head>
 <body>
-    <div>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Dropdown menu -->
+        <ul>
+            <li>
+                <a href="#">Dropdown</a>
+                <div class="dropdown-menu">
+                    <a href="#">Item 1</a>
+                    <a href="#">Item 2</a>
+                    <a href="#">Item 3</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main content -->
+    <div class="content">
         <h1>Touchdown Prophecy</h1>
     </div>
 </body>
