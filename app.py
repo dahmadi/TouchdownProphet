@@ -9,28 +9,25 @@ import pickle
 import sklearn
 import os
 
-st.set_page_config(page_title='Preadico: Super Bowl LVI', layout='wide')
+st.set_page_config(page_title='Touchdown Prophecy', layout='wide')
 #st.image('.image.png')
-st.title('Praedico: Road to Super Bowl LVI')
+st.title('Touchdown Prophecy: NFL Game Predictor')
 
 #models = {'Logistic Regression': {'load' : pickle.load(open('LR_model.sav','rb'))},
          #'Gradien Boosting': {'load' : pickle.load(open('GB_model.sav','rb'))},
          #'MLP Regression': {'load' : pickle.load(open('MLP_model.sav','rb'))},
          #'Random Forest': {'load' : pickle.load(open('RF_model.sav','rb'))}
          #}
-sorted_models = ['Logistic Regression', 'Gradien Boosting', 'MLP Regression', 'Random Forest']
+sorted_models = ['Logistic Regression', 'XG Boost', 'MLP Regression']
 
 
 path = ("./resources/Team_df.csv")
 com_data = pd.read_csv(path)
 
 st.markdown("""
-Praedico is an online application that allows our users to fair a better chance of predicting the winner of the Super Bowl. Without a doubt the value of the NFL betting market is challenging to accurately estimate. The value of the sports betting market is anywhere between 700 Billion to 1 Trillion with an illegal market estimated at 500 Billion. If your goal is to make money, we can help you achieve that goal with a higher probabilty.
-
-
-Thank you for using our application. We look forward to winning with you. May the Praedico be with you!
-
-** Disclaimer: For informational purposes only. This is not betting advice. 
+Welcome to Touchdown Prophecy your go-to platform for elevating your Super Bowl outcome predictions. Ascertaining the true value of the NFL betting scene poses a considerable challenge, fluctuating between a staggering 700 Billion to 1 Trillion. Additionally, the clandestine market further swells this figure by an estimated 500 Billion. If your objective is financial gain, rely on us to amplify your odds of success.
+Thank you for choosing our application. We anticipate achieving victories together. May the Touchdown Prophecy be with you!
+Disclaimer: This content is for informational purposes only and does not constitute betting advice.
 """)
 
 #st.sidebar.header('Playoff Teams')
@@ -165,20 +162,20 @@ def filedownload(df):
     return href
 st.markdown(filedownload(teamstats), unsafe_allow_html=True)
 
-Buffalo_Bills = Image.open("Logos/Bills.png")
-Pittsburgh_Steelers = Image.open("Logos/Steelers.png")
-Kansas_City_Chiefs = Image.open("Logos/Chiefs.png")
-Las_Vegas_Raiders = Image.open("Logos/Raiders.png")
-Tennessee_Titans = Image.open("Logos/Titans.png")
-Los_Angeles_Rams = Image.open("Logos/Rams.png")
-New_England_Patriots = Image.open("Logos/Patriots.png")
-Tampa_Bay_Buccaneers = Image.open("Logos/Buccaneers.png")
-San_Francisco_49ers = Image.open("Logos/49ers.png")
-Cincinnati_Bengals = Image.open("Logos/Bengals.png")
-Dallas_Cowboys = Image.open("Logos/Cowboys.png")
-Philadelphia_Eagles = Image.open("Logos/Eagles.png")
-Green_Bay_Packers = Image.open("Logos/Packers.png")
-Arizona_Cardinals = Image.open("Logos/Cardinals.png")
+Buffalo_Bills = Image.open("Photos/Bills.png")
+Pittsburgh_Steelers = Image.open("Photos/Steelers.png")
+Kansas_City_Chiefs = Image.open("Photos/Chiefs.png")
+Las_Vegas_Raiders = Image.open("Photos/Raiders.png")
+Tennessee_Titans = Image.open("Photos/Titans.png")
+Los_Angeles_Rams = Image.open("Photos/Rams.png")
+New_England_Patriots = Image.open("Photos/Patriots.png")
+Tampa_Bay_Buccaneers = Image.open("Photos/Buccaneers.png")
+San_Francisco_49ers = Image.open("Photos/49ers.png")
+Cincinnati_Bengals = Image.open("Photos/Bengals.png")
+Dallas_Cowboys = Image.open("Photos/Cowboys.png")
+Philadelphia_Eagles = Image.open("Photos/Eagles.png")
+Green_Bay_Packers = Image.open("Photos/Packers.png")
+Arizona_Cardinals = Image.open("Photos/Cardinals.png")
 
 
 st.subheader(" ")
