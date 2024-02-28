@@ -13,12 +13,10 @@ st.set_page_config(page_title='Touchdown Prophecy', layout='wide')
 #st.image('.image.png')
 st.title('Touchdown Prophecy: NFL Game Predictor')
 
-#models = {'Logistic Regression': {'load' : pickle.load(open('LR_model.sav','rb'))},
-         #'XG Boost': {'load' : pickle.load(open('GB_model.sav','rb'))},
-         #'MLP Regression': {'load' : pickle.load(open('MLP_model.sav','rb'))}
-         #}
-
-models = {'MLP Regression': {'load' : pickle.load(open('MLP_model.sav','rb'))}}
+models = {'Logistic Regression': {'load' : pickle.load(open('LR_model.sav','rb'))},
+         'XG Boost': {'load' : pickle.load(open('XGBoost_model.sav','rb'))},
+         'MLP Regression': {'load' : pickle.load(open('MLP_model.sav','rb'))}
+         }
 
 sorted_models = ['Logistic Regression', 'XG Boost', 'MLP Regression']
 
@@ -133,27 +131,7 @@ def Score_Predictor(home_team, away_team):
     
     return scores, winner
 
-# Web scraping of NFL player stats
-@st.cache
-def load_data(team): #year,
-    url = "https://www.pro-football-reference.com/teams/" + teams_dict[selected_team]['Abbrev'].lower() + "/2021.htm"
-    df = pd.read_html(url, header = 1)
-    df = df[1]
-    return df
-teamstats = load_data(selected_team) #selected_year, 
 
-st.header('Display 2021 Season Schedule, Results, and Statistics')
-st.subheader('Current Team Selection: ' + selected_team)
-st.image(teams_dict[selected_team]['Logo'], width = 500)
-st.dataframe(teamstats)
-st.write("Source: https://www.pro-football-reference.com/teams/" + f"{teams_dict[selected_team]['Abbrev'].lower()}" + "/2021.htm")
-
-def filedownload(df):
-    csv = df.to_csv(index=False)
-    b64 = base64.b64encode(csv.encode()).decode()  # strings <-> bytes conversions
-    href = f'<a href="data:file/csv;base64,{b64}" download="playerstats.csv">Download CSV File</a>'
-    return href
-st.markdown(filedownload(teamstats), unsafe_allow_html=True)
 
 Buffalo_Bills = Image.open("photos/Bills.png")
 Pittsburgh_Steelers = Image.open("photos/Steelers.png")
