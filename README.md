@@ -5,3 +5,9 @@ Thank you for choosing our application. We anticipate achieving victories togeth
 
 Disclaimer: This content is for informational purposes only and does not constitute betting advice.
 
+#### Contributors
+
+James Davidson
+Donya Ahmadi
+Kobe Buncu
+
