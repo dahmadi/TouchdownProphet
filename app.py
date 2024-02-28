@@ -32,17 +32,17 @@ st.sidebar.header('Playoff Teams')
 teams_dict = {'Buffalo Bills' : {'Abbrev':'BUF', 'Logo' : 'photos/Bills.png', 'Seed' : 2, 'Blurb' : "Buffalo Bills (11-6), champions, AFC East. The Bills won the division and kept this seed with a home win over the Jets. They finish a game behind the co-AFC leaders and a game ahead of the Bengals after being the AFC's No. 2 in last year's playoffs."},
               'Pittsburgh Steelers' : {'Abbrev':'PIT', 'Logo' : 'photos/Steelers.png', 'Seed' : 7, 'Blurb' : "Pittsburgh Steelers (9-7-1), second place, AFC North. The Steelers got into the playoffs to extend the career of Ben Roethlisberger by beating the Ravens in Week 18 while the Jaguars beat the Colts and the Raiders beat the Chargers."}, 
               'Kansas City Chiefs' : {'Abbrev':'KAN', 'Logo' : 'photos/Chiefs.png', 'Seed' : 3, 'Blurb' : "Kansas City Chiefs (12-5), champions, AFC West. The Chiefs will settle for the No. 2 seed after beating the Broncos in Week 18 because they lost head-to-head to the Titans in Week 7. They did win Super Bowl 54 coming from this position behind the Ravens."}, 
-              'Las Vegas Raiders' : {'Abbrev':'RAI', 'Logo' : 'photos/Raiders.png', 'Seed' : 5, 'Blurb' : "Las Vegas Raiders (10-7), second place, AFC West. The Raiders moved into playoff position with the Colts, whom they beat in Week 17, being upset by the Jaguars in Week 18. They earned a playoff berth with the wild overtime win over the Chargers on Sunday night."},
-              'Tennessee Titans' : {'Abbrev':'OTI', 'Logo' : 'photos/Titans.png', 'Seed' : 1, 'Blurb' : "Tennessee Titans (12-5), champions, AFC South. The Titans held on against the Texans in Week 18 to stay ahead of the Chiefs and clinch the No. 1 seed. They have home-field advantage in the AFC playoffs and the lone bye. The conference road to Super Bowl 56 will go through Nashviille."}, 
+              'Baltimore Ravens' : {'Abbrev':'BAL', 'Logo' : 'photos/Ravens.png', 'Seed' : 5, 'Blurb' : "Las Vegas Raiders (10-7), second place, AFC West. The Raiders moved into playoff position with the Colts, whom they beat in Week 17, being upset by the Jaguars in Week 18. They earned a playoff berth with the wild overtime win over the Chargers on Sunday night."},
+              'Houston Texans' : {'Abbrev':'HOU', 'Logo' : 'photos/Texans.png', 'Seed' : 1, 'Blurb' : "Tennessee Titans (12-5), champions, AFC South. The Titans held on against the Texans in Week 18 to stay ahead of the Chiefs and clinch the No. 1 seed. They have home-field advantage in the AFC playoffs and the lone bye. The conference road to Super Bowl 56 will go through Nashviille."}, 
               'Los Angeles Rams' : {'Abbrev':'RAM', 'Logo' : 'photos/Rams.png', 'Seed' : 6, 'Blurb' : "Los Angeles Rams (12-5), champions, NFC West. The Rams failed to beat the 49ers in Week 18 but still took back the division crown with the Cardinals losing another West matchup to the Seahawks at home. They cost themselves a No. 2 seed and now need to play a third game against the Cardinals."},
-              'New England Patriots' : {'Abbrev':'NWE', 'Logo' : 'photos/Patriots.png', 'Seed' : 6, 'Blurb' : "New England Patriots (10-7), second place, AFC East. The Patriots lost to the Dolphins in Week 18, but they had already lost the East title when the Bills beat the Jets. They dropped to No. 6 with the Raiders beating the Chargers on Sunday night because of losing the tiebreaker."},
+              'Miami Dolphins' : {'Abbrev':'MIA', 'Logo' : 'photos/Dolphins.png', 'Seed' : 6, 'Blurb' : "New England Patriots (10-7), second place, AFC East. The Patriots lost to the Dolphins in Week 18, but they had already lost the East title when the Bills beat the Jets. They dropped to No. 6 with the Raiders beating the Chargers on Sunday night because of losing the tiebreaker."},
               'Tampa Bay Buccaneers' : {'Abbrev':'TAM', 'Logo' : 'photos/Buccaneers.png', 'Seed' : 4, 'Blurb' : "Tampa Bay Buccaneers (13-4), champions, NFC South. The Buccaneers beat the Panthers and moved up to No. 2 because the Rams, to whom they lost in Week 3, lost to the 49ers. They finished behind the Packers because of a lesser confference record and ahead of the Cowboys, up a full game and a head-to-head tiebreaker from Week 1."}, 
               'San Francisco 49ers' : {'Abbrev':'SFO', 'Logo' : 'photos/49ers.png', 'Seed' : 1, 'Blurb' : "San Francisco 49ers (10-7), third place, NFC West. The 49ers locked down the second wild card by beating the Rams in overtime in Week 18. They held off the winning Saints and got up a full game on the losing Eagles, whom they also beat in Week 2."}, 
-              'Cincinnati Bengals' : {'Abbrev':'CIN', 'Logo' : 'photos/Bengals.png', 'Seed' : 4, 'Blurb' : "Cincinnati Bengals (10-7), champions, AFC North. The Bengals rested key players because of injuries and other reasons and lost without Joe Burrow and Joe Mixon at the Browns in Week 18. They were set to stay here behind the East champions."}, 
+              'Detroit Lions' : {'Abbrev':'DET', 'Logo' : 'photos/Lions.png', 'Seed' : 4, 'Blurb' : "Cincinnati Bengals (10-7), champions, AFC North. The Bengals rested key players because of injuries and other reasons and lost without Joe Burrow and Joe Mixon at the Browns in Week 18. They were set to stay here behind the East champions."}, 
               'Dallas Cowboys' : {'Abbrev':'DAL', 'Logo' : 'photos/Cowboys.png', 'Seed' : 2, 'Blurb' : "Dallas Cowboys (12-5), champions, NFC East. The Cowboys rebounded to rout the resting Eagles in Week 18 after they lost to the Cardinals in a failed comeback in Week 17. They were able to jump the losing Rams because of winning the conference-record tiebreaker over them."}, 
               'Philadelphia Eagles' : {'Abbrev':'PHI', 'Logo' : 'photos/Eagles.png', 'Seed' : 5, 'Blurb' : "Philadelphia Eagles (9-8), second place, NFC East. The Eagles rested players against the Cowboys in Week 18 after they had already clinched a wild-card spot in Week 17. They stayed ahead of the winning Saints because of beating that team in Week 11."}, 
               'Green Bay Packers' : {'Abbrev':'GNB', 'Logo' : 'photos/Packers.png', 'Seed' : 7,  'Blurb' : "Green Bay Packers (13-4), champions, NFC North. The Packers clinched the No. 1 seed, the lone bye and the Lambeau home-field advantage in the NFC playoffs with their win over the Vikings in Week 17, matching their win total of the previous two seasons with Aaron Rodgers under Matt LaFleur with one more game left in the new schedule. They lost in Week 18 while resting Rodgers and other regulars in the second half against the Lions."}, 
-              'Cleveland Browns' : {'Abbrev':'CRD', 'Logo' : 'photos/Cardinals.png', 'Seed' : 5, 'Blurb' : "Arizona Cardinals (11-6), second place, NFC West. The Cardinals could have won the division with the Rams losing but they also lost to the Seahawks. They will settle for the top wild-card spot and a rematch with the Rams in the wild-card playoffs."}}
+              'Cleveland Browns' : {'Abbrev':'CLE', 'Logo' : 'photos/Browns.png', 'Seed' : 5, 'Blurb' : "Arizona Cardinals (11-6), second place, NFC West. The Cardinals could have won the division with the Rams losing but they also lost to the Seahawks. They will settle for the top wild-card spot and a rematch with the Rams in the wild-card playoffs."}}
 
 
 # Sidebar - Team selection
@@ -159,17 +159,17 @@ st.markdown(filedownload(teamstats), unsafe_allow_html=True)
 Buffalo_Bills = Image.open("photos/Bills.png")
 Pittsburgh_Steelers = Image.open("photos/Steelers.png")
 Kansas_City_Chiefs = Image.open("photos/Chiefs.png")
-Las_Vegas_Raiders = Image.open("photos/Raiders.png")
-Tennessee_Titans = Image.open("photos/Titans.png")
+Baltimore_Ravens = Image.open("photos/Ravens.png")
+Houston_Texans = Image.open("photos/Texans.png")
 Los_Angeles_Rams = Image.open("photos/Rams.png")
-New_England_Patriots = Image.open("photos/Patriots.png")
+Miami_Dolphins = Image.open("photos/Dolphins.png")
 Tampa_Bay_Buccaneers = Image.open("photos/Buccaneers.png")
 San_Francisco_49ers = Image.open("photos/49ers.png")
-Cincinnati_Bengals = Image.open("photos/Bengals.png")
+Detroit_Lions = Image.open("photos/Lions.png")
 Dallas_Cowboys = Image.open("photos/Cowboys.png")
 Philadelphia_Eagles = Image.open("photos/Eagles.png")
 Green_Bay_Packers = Image.open("photos/Packers.png")
-Arizona_Cardinals = Image.open("photos/Cardinals.png")
+Cleveland_Browns = Image.open("photos/Browns.png")
 
 
 st.subheader(" ")
@@ -186,27 +186,54 @@ col1, col2 = st.columns(2)
 col1.title("Wild Card Round")
 
 col1.subheader("AFC Game 1")
-col1.image(teams_dict['Kansas City Chiefs']['Logo'], width = 200)
-col1.image(teams_dict['Pittsburgh Steelers']['Logo'], width = 200)
+col1.image(teams_dict['Cleveland Browns']['Logo'], width = 200)
+col1.image(teams_dict['Houston Texans']['Logo'], width = 200)
 col1.subheader("AFC Game 2")
-col1.image(teams_dict['Buffalo Bills']['Logo'], width = 200)
-col1.image(teams_dict['New England Patriots']['Logo'], width = 200)
+col1.image(teams_dict['Miami Dolphins']['Logo'], width = 200)
+col1.image(teams_dict['Kansas City Chiefs']['Logo'], width = 200)
 col1.subheader("AFC Game 3")
-col1.image(teams_dict['Cincinnati Bengals']['Logo'], width = 200)
-col1.image(teams_dict['Las Vegas Raiders']['Logo'], width = 200)
+col1.image(teams_dict['Pittsburgh Steelers']['Logo'], width = 200)
+col1.image(teams_dict['Buffalo Bills']['Logo'], width = 200)
+
 col1.subheader("NFC Game 1")
-col1.image(teams_dict['Tampa Bay Buccaneers']['Logo'], width = 200)
-col1.image(teams_dict['Philadelphia Eagles']['Logo'], width = 200)
-col1.subheader("NFC Game 2")
-col1.image(teams_dict['Dallas Cowboys']['Logo'], width = 200)
-col1.image(teams_dict['San Francisco 49ers']['Logo'], width = 200)
-col1.subheader("NFC Game 3")
-col1.image(teams_dict['Los Angeles Rams']['Logo'], width = 200)
-col1.image(teams_dict['Arizona Cardinals']['Logo'], width = 200)
-col1.subheader("AFC Bye Team ")
-col1.image(teams_dict['Tennessee Titans']['Logo'], width = 200)
-col1.subheader("NFC Bye Team ")
 col1.image(teams_dict['Green Bay Packers']['Logo'], width = 200)
+col1.image(teams_dict['Dallas Cowboys']['Logo'], width = 200)
+col1.subheader("NFC Game 2")
+col1.image(teams_dict['Los Angeles Rams']['Logo'], width = 200)
+col1.image(teams_dict['Detroit Lions']['Logo'], width = 200)
+col1.subheader("NFC Game 3")
+col1.image(teams_dict['Philadelphia Eagles']['Logo'], width = 200)
+col1.image(teams_dict['Tampa Bay Buccaneers']['Logo'], width = 200)
+
+col1.title("AFC Division Round")
+
+col1.subheader("AFC Game 1")
+col1.image(teams_dict['Houston Texans']['Logo'], width = 200)
+col1.image(teams_dict['Baltimore Ravens']['Logo'], width = 200)
+col1.subheader("AFC Game 2")
+col1.image(teams_dict['Kansas City Chiefs']['Logo'], width = 200)
+col1.image(teams_dict['Buffalo Bills']['Logo'], width = 200)
+
+col1.title("NFC Division Round")
+col1.subheader("NFC Game 1")
+col1.image(teams_dict['Green Bay Packers']['Logo'], width = 200)
+col1.image(teams_dict['San Francisco 49ers']['Logo'], width = 200)
+col1.subheader("NFC Game 2")
+col1.image(teams_dict['Tampa Bay Buccaneers']['Logo'], width = 200)
+col1.image(teams_dict['Detroit Lions']['Logo'], width = 200)
+
+col1.title("AFC Conference Championship")
+col1.image(teams_dict['Kansas City Chiefs']['Logo'], width = 200)
+col1.image(teams_dict['Baltimore Ravens']['Logo'], width = 200)
+
+col1.title("NFC Conference Championship")
+col1.image(teams_dict['San Francisco 49ers']['Logo'], width = 200)
+col1.image(teams_dict['Detroit Lions']['Logo'], width = 200)
+
+col1.subheader("AFC Bye Team ")
+col1.image(teams_dict['Baltimore Ravens']['Logo'], width = 200)
+col1.subheader("NFC Bye Team ")
+col1.image(teams_dict['San Francisco 49ers']['Logo'], width = 200)
 container = st.container()
 
 afc_lowest = ''
@@ -355,7 +382,7 @@ col1.image(teams_dict[selected_team1]['Logo'], width = 200)
 col1.text("  ")
 col1.image(teams_dict[selected_team2]['Logo'], width = 200)
 
-button1 = st.sidebar.button("Show me the result using Praedico")
+button1 = st.sidebar.button("Show me the result using Touchdown Prophet")
 if button1:  
     scores, winner = Score_Predictor(selected_team1, selected_team2)
     
