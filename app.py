@@ -14,7 +14,7 @@ st.set_page_config(page_title='Touchdown Prophecy', layout='wide')
 st.title('Touchdown Prophecy: NFL Game Predictor')
 
 models = {'Logistic Regression': {'load' : pickle.load(open('LR_model.sav','rb'))},
-         'XG Boost': {'load' : pickle.load(open('XGBoost_model.sav','rb'))},
+         #'XG Boost': {'load' : pickle.load(open('XGBoost_model.sav','rb'))},
          'MLP Regression': {'load' : pickle.load(open('MLP_model.sav','rb'))}
          }
 
@@ -152,10 +152,10 @@ Cleveland_Browns = Image.open("photos/Browns.png")
 st.subheader(" ")
 st.header(f"{selected_team}' Playoff Picture")
 st.write(teams_dict[selected_team]['Blurb'])
-st.write('Source: https://www.sportingnews.com/us/nfl/news/nfl-playoffs-2022-picks-predictions-bracket-super-bowl/qm7ljbia21w514pj03zl2fvtr')
+st.write('Source: https://www.sportingnews.com/us/nfl/news/nfl-playoff-picks-predictions-2024-afc-nfc-super-bowl-58/a845b0e848e89f626ca15e2b')
 
 st.markdown('---')
-st.title("Road to Super Bowl LVI")
+st.title("Road to Super Bowl LVIII")
 
 
 button1 = st.button("Run Touchdown Prophet")
@@ -225,12 +225,12 @@ winner = ""
 
 if button1:
     
-    scores1, afc_winner1 = Score_Predictor('Kansas City Chiefs', 'Pittsburgh Steelers')
-    scores2, afc_winner2 = Score_Predictor('Buffalo Bills', 'New England Patriots')
-    scores3, afc_winner3 = Score_Predictor('Cincinnati Bengals', 'Las Vegas Raiders')
-    scores4, nfc_winner1 = Score_Predictor('Tampa Bay Buccaneers', 'Philadelphia Eagles')
-    scores5, nfc_winner2 = Score_Predictor('Dallas Cowboys', 'San Francisco 49ers')
-    scores6, nfc_winner3 = Score_Predictor('Los Angeles Rams', 'Arizona Cardinals')
+    scores1, afc_winner1 = Score_Predictor('Cleveland Browns', 'Houston Texans')
+    scores2, afc_winner2 = Score_Predictor('Miami Dolphins', 'Kansas City Chiefs')
+    scores3, afc_winner3 = Score_Predictor('Pittsburgh Steelers', 'Buffalo Bills')
+    scores4, nfc_winner1 = Score_Predictor('Green Bay Packers', 'Dallas Cowboys')
+    scores5, nfc_winner2 = Score_Predictor('Los Angeles Rams', 'Detroit Lions')
+    scores6, nfc_winner3 = Score_Predictor('Philadelphia Eagles', 'Tampa Bay Buccaneers')
     
     col2.title("Touchdown Prophecy")
     col2.subheader("AFC Game 1 Winner")
@@ -246,9 +246,9 @@ if button1:
     col2.subheader("NFC Game 3 Winner")
     col2.image(teams_dict[nfc_winner3]['Logo'], width = 325, caption = f'Final Score: {scores6[0]: .0f} vs. {scores6[1]: .0f}')
     col2.subheader("AFC Bye Team ")
-    col2.image(teams_dict['Tennessee Titans']['Logo'], width = 300)
+    col2.image(teams_dict['Baltimore Ravens']['Logo'], width = 300)
     col2.subheader("NFC Bye Team ")
-    col2.image(teams_dict['Green Bay Packers']['Logo'], width = 300)
+    col2.image(teams_dict['San Francisco 49ers']['Logo'], width = 300)
        
     if (teams_dict[afc_winner1]['Seed'] > teams_dict[afc_winner2]['Seed']) and (teams_dict[afc_winner1]['Seed'] > teams_dict[afc_winner3]['Seed']):
         afc_lowest = afc_winner1
