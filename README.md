@@ -68,3 +68,14 @@ LR Prediction Values:
 ADA Prediction Values:
 
 ![ada_pred](photos/ada_predictions.png)
+
+
+## Score Prediction Model Implementation Process
+
+To run our Super Bowl simulation models we would first need to run a simulation of 17 regular season games for all 32 NFL teams to select the 14 teams that would advance to the playoffs. 
+
+As an expirement, as well as for presentation purposes, we decided to use the most recent year of 2023 to run our models. To accomplish this we first imported all 17 game statistics, of all 32 NFL teams, from the 2023 regular season. After which, we combinded all 544 regular-season games into a single dataframe and converted all 'object' and 'NaN' values into 0's and 1's. The final step to generate the finalized dataframe used in the our prediction models, was to add the LR and ADA prediction value's computed in the process above, as visualizaed below.
+
+2023 Season:
+
+![model_df](photos/model_df.png)
