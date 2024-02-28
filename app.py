@@ -13,6 +13,13 @@ st.set_page_config(page_title='Touchdown Prophecy', layout='wide')
 #st.image('.image.png')
 st.title('Touchdown Prophecy: NFL Game Predictor')
 
+#models = {'Logistic Regression': {'load' : pickle.load(open('LR_model.sav','rb'))},
+         #'XG Boost': {'load' : pickle.load(open('GB_model.sav','rb'))},
+         #'MLP Regression': {'load' : pickle.load(open('MLP_model.sav','rb'))}
+         #}
+
+models = {'MLP Regression': {'load' : pickle.load(open('MLP_model.sav','rb'))}}
+
 sorted_models = ['Logistic Regression', 'XG Boost', 'MLP Regression']
 
 
@@ -61,11 +68,6 @@ team_index = com_data['Team']
 # Remove Opponent, Score, Result
 model_data = com_data[['Team', 'Opponent', 'Points Scored', '1st Downs', 'Total Yards Gained', ' Passing Yards', ' Rushing Yards', 'Turnovers Lost',
                          '1st Downs Allowed', 'Total Yards Allowed', 'Passing Yards Allowed', 'Rushing Yards Allowed', 'Turnovers Gained', 'Home','Prediction_LR','Prediction_ADA']]
-# change to season stats
-season_stats = ['1st Downs', 'Total Yards Gained', ' Passing Yards', ' Rushing Yards', 'Turnovers Lost',
-                         '1st Downs Allowed', 'Total Yards Allowed', 'Passing Yards Allowed', 'Rushing Yards Allowed', 'Turnovers Gained']
-
-model_data[season_stats] = model_data[season_stats] * 16
 
 # standardise the data
 from sklearn import preprocessing
@@ -90,46 +92,44 @@ def Score_Predictor(home_team, away_team):
     team1 = home_team
     team2 = away_team
     
-    team1_data = model_data[com_data['Team'] == team1].drop('TmScore', axis=1).reset_index(drop=True)
-    team2_data = model_data[com_data['Team'] == team2].drop('TmScore', axis=1).reset_index(drop=True)
+    team1_data = model_data[com_data['Team'] == team1].drop('Points Scored', axis=1).reset_index(drop=True)
+    team2_data = model_data[com_data['Team'] == team2].drop('Points Scored', axis=1).reset_index(drop=True)
     
-    week_slice = slice(0,16)
+    week_slice = slice(0,17)
     
     #1 Remove if no team names
     team1_test = pd.DataFrame(team1_data[week_slice].mean(axis=0)).T #select week to use as average
     #team1_test  #This was the line printing that extra dataframe onto the Dashboard
-    opp_columns = team1_test.filter(like='Opp').columns
+    opp_columns = team1_test.filter(like='Opponent').columns
     
     team1_test[opp_columns] = 0
-    team1_test['Opp_' + team2] = 1
+    team1_test['Team_' + team2] = 1
     team1_test['Home'] = 1
     
     #2
     team2_test = pd.DataFrame(team2_data[week_slice].mean(axis=0)).T #select week to use as average
-    opp_columns = team2_test.filter(like='Opp').columns
+    opp_columns = team2_test.filter(like='Opponent').columns
     
     team2_test[opp_columns] = 0
-    team2_test['Opp_' + team1] = 1
+    team2_test['Team_' + team1] = 1
     team2_test['Home'] = 1 # change to remove home field advantage
     
     # head to head matchup
-    team1_test[['D_1stD','D_Tot_Yd','D_P_Yd','D_R_Yd','D_TO']] = team2_test[['O_1stD','O_Tot_yd','O_P_Yd','O_R_Yd','O_TO']]
-    team2_test[['D_1stD','D_Tot_Yd','D_P_Yd','D_R_Yd','D_TO']] = team1_test[['O_1stD','O_Tot_yd','O_P_Yd','O_R_Yd','O_TO']]
+    team1_test[['1st Downs Allowed','Total Yards Allowed','Passing Yards Allowed','Rushing Yards Allowed','Turnovers Gained']] = team2_test[['1st Downs','Total Yards Gained',' Passing Yards',' Rushing Yards','Turnovers Lost']]
+    team2_test[['1st Downs Allowed','Total Yards Allowed','Passing Yards Allowed','Rushing Yards Allowed','Turnovers Gained']] = team1_test[['1st Downs','Total Yards Gained',' Passing Yards',' Rushing Yards','Turnovers Lost']]
     
     X_Playoff_test = pd.concat([team1_test, team2_test])
     X_Playoff_test.fillna(0, inplace = True) # added to address the NANs that was causing the error
     
     scores = models[selected_model]['load'].predict(X_Playoff_test)
-    #print(team1, "will score", round(scores[0], 1))
-    #print(team2, "will score", round(scores[1], 1))
+   
     
     if scores[0] > scores[1]:
         winner = team1
     else:
         winner = team2
     
-    #scores_str = f'{scores[0]} vs. {scores[1]}'
-    #print(winner, "are the WINNERS!!!")
+    print(winner, " are the WINNERS!!!")
     
     return scores, winner
 
