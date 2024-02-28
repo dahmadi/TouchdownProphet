@@ -7,7 +7,8 @@ Disclaimer: This content is for informational purposes only and does not constit
 
 #### Contributors
 
-James Davidson
-Donya Ahmadi
-Kobe Buncu
+James Davidson  
+Donya Ahmadi  
+Kobe Buncu  
+
 
