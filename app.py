@@ -25,7 +25,6 @@ Thank you for choosing our application. We anticipate achieving victories togeth
 Disclaimer: This content is for informational purposes only and does not constitute betting advice.
 """)
 
-#st.sidebar.header('Playoff Teams')
 st.sidebar.header('Playoff Teams')
 
 
@@ -181,7 +180,7 @@ st.markdown('---')
 st.title("Road to Super Bowl LVI")
 
 
-button1 = st.button("Run Praedico")
+button1 = st.button("Run Touchdown Prophet")
 col1, col2 = st.columns(2)
 col1.title("Wild Card Round")
 
@@ -255,7 +254,7 @@ if button1:
     scores5, nfc_winner2 = Score_Predictor('Dallas Cowboys', 'San Francisco 49ers')
     scores6, nfc_winner3 = Score_Predictor('Los Angeles Rams', 'Arizona Cardinals')
     
-    col2.title("Praedico")
+    col2.title("Touchdown Prophecy")
     col2.subheader("AFC Game 1 Winner")
     col2.image(teams_dict[afc_winner1]['Logo'], width = 325, caption = f' Final Score: {scores1[0]: .0f} vs. {scores1[1]: .0f}')
     col2.subheader("AFC Game 2 Winner")
@@ -325,7 +324,7 @@ if button1:
     scores9, winner9 = Score_Predictor('Green Bay Packers', nfc_lowest)
     scores10, winner10 = Score_Predictor(nfc_team1, nfc_team2)
    
-    col2.title("Praedico")  
+    col2.title("Touchdown Prophet")  
     col2.subheader("AFC Divisional Game 1 Winner")
     col2.image(teams_dict[winner7]['Logo'], width = 350, caption = f'Final Score: {scores7[0]: .0f} vs. {scores7[1]: .0f}')
 
@@ -352,7 +351,7 @@ if button1:
     scores11, winner11 = Score_Predictor(winner7, winner8)
     scores12, winner12 = Score_Predictor(winner9, winner10)
 
-    col2.title("Praedico")
+    col2.title("Touchdown Prophet")
     col2.subheader("AFC Final Winner")
     col2.image(teams_dict[winner11]['Logo'], width = 400, caption = f'Final Score: {scores11[0]: .0f} vs. {scores11[1]: .0f}')
             
