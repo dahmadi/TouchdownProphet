@@ -8,11 +8,25 @@ from PIL import Image
 import pickle
 import sklearn
 import os
+# from xgboost import XGBRegressor  # Import XGBRegressor from xgboost library
+# import joblib  # Import joblib for saving and loading XGBoost models
+# import hashlib
 
 
 st.set_page_config(page_title='Touchdown Prophecy', layout='wide')
 st.image('photos/Main.png')
 st.title('Touchdown Prophecy: NFL Game Predictor')
+
+# # Define custom hashing function for XGBRegressor
+# def hash_xgb(xgb_model):
+#     return hashlib.md5(joblib.dumps(xgb_model)).hexdigest()
+
+# # Pass the custom hashing function to Streamlit's caching mechanism
+# @st.cache(hash_funcs={XGBRegressor: hash_xgb})
+# def load_xgb_model(filename):
+#     with open(filename, 'rb') as file:
+#         model = pickle.load(file)
+#     return model
 
 models = {'Logistic Regression': {'load' : pickle.load(open('LR_model.sav','rb'))},
          'XG Boost': {'load' : pickle.load(open('XGBoost_model.sav','rb'))},
@@ -65,8 +79,10 @@ selected_model = st.sidebar.selectbox("Choose your Model", sorted_models)
 team_index = com_data['Team']
 
 # Remove Opponent, Score, Result
-model_data = com_data[['Team', 'Opponent', 'Points Scored', '1st Downs', 'Total Yards Gained', ' Passing Yards', ' Rushing Yards', 'Turnovers Lost',
-                         '1st Downs Allowed', 'Total Yards Allowed', 'Passing Yards Allowed', 'Rushing Yards Allowed', 'Turnovers Gained', 'Home','Prediction_LR','Prediction_ADA']]
+model_data = com_data[['Team','Week','Record','Home','Points Scored','Points Allowed','1st Downs','Total Yards Gained',
+                          ' Passing Yards',' Rushing Yards','Turnovers Lost','1st Downs Allowed','Total Yards Allowed',
+                          'Passing Yards Allowed','Rushing Yards Allowed','Turnovers Gained','Offense Expected Points',
+                          'Defense  Expected Points','Special Teams  Expected Points','Prediction_LR','Prediction_ADA']]
 
 # standardise the data
 from sklearn import preprocessing
@@ -86,7 +102,7 @@ pd.options.display.max_rows = None
 pd.options.display.max_columns = None
 
 # Create playoff test dataset from season averages
-@st.cache
+@st.cache(hash_funcs={dict: lambda _: None})
 def Score_Predictor(home_team, away_team):
     team1 = home_team
     team2 = away_team
@@ -154,6 +170,7 @@ def filedownload(df):
     href = f'<a href="data:file/csv;base64,{b64}" download="playerstats.csv">Download CSV File</a>'
     return href
 st.markdown(filedownload(teamstats), unsafe_allow_html=True)
+
 
 
 Buffalo_Bills = Image.open("photos/Bills.png")
