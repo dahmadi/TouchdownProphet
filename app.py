@@ -86,7 +86,7 @@ pd.options.display.max_rows = None
 pd.options.display.max_columns = None
 
 # Create playoff test dataset from season averages
-@st.cache
+@st.cache(hash_funcs={dict: lambda _: None})
 def Score_Predictor(home_team, away_team):
     team1 = home_team
     team2 = away_team
