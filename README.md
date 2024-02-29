@@ -79,3 +79,34 @@ As an expirement, as well as for presentation purposes, we decided to use the mo
 2023 Season:
 
 ![model_df](photos/model_df.png)
+
+### Models
+
+MLP Regressor Model:
+
+![mlp_model](photos/mlp_model.png)
+
+Logistic Regression Model:
+
+![lr_model](photos/lr_model.png)
+
+XG Boost Model:
+
+![xgboost_model](photos/xgb_model.png)
+
+## Front End Application
+
+Team Selection:
+![team_selector](photos/app_team_selector.png)
+
+Model Selection:
+![model_selector](photos/model_selector.png)
+
+Run Model Projections:
+![model_projection](photos/run_model.png)
+
+WINNER:
+![winner](photos/winner.png)
+
+## User Experience
+Go to the Anaconda Prompt to launch JupyterLab by typing Jupyter Lab. To use this application simply clone the repository and run the app.py file in your Jupyter Lab. Open a terminal and input streamlit run app.py
